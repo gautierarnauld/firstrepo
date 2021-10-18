@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Today's Date</title>
+    <script>
+        //let : quand on ne va pas réutiliser la variable
+        //var: quand on va réutiliser la varaible
+        //const: quand la valeur de la variable ne peut pas etre modifiée
+        let d = new Date();
+        console.log('Date du Jour:')
+        alert("Today's date is " + d);
+        console.log(d)
+    </script>
+</head>
+
+<body>
+
+    <!-- <script>
+        document.body.innerHTML = "<h1>Today's date is " + d + "</h1>"
+    </script> -->
+
+    <!-- Ajouter du contenu depuis un script -->
+    <script>
+        var div1 = document.createElement('div') //A partir de l'object document, j'utilise la function createElement pour ajouter une div
+        div1.id ='makeMeRed'
+        div1.innerHTML = `Today's date is ${d}`
+        document.body.appendChild(div1)
+
+        function makeMeRed() {
+            var el = document.getElementById('makeMeRed')
+            el.setAttribute("style", "color:red;")
+        }
+
+        function makeMeBlack() {
+            var el = document.getElementById('makeMeRed')
+            el.setAttribute("style", "color:black;")
+        }
+        function changeColor() {
+        for (var [key, value] of Object.entries(dict)) {
+        //
+        if (key === 'passeport'){
+            for (var [keyPassport, valuePassport] of Object.entries(value)) {
+                console.log(`${keyPassport}: ${valuePassport}`)
+
+            }
+            //true
+
+        }else
+            //false
+        console.log(`${key}: ${value}`)
+    }
+}
+
+    </script>
+    <h1> Click on Button to transform date in red</h1>
+    <button onClick="makeMeRed()"> makeMeRed </button>
+    <h1> Click on Button to transform date in black</h1>
+    <button onClick="makeMeBlack()"> makeMeRed </button>
+</body>
+
+</html>
