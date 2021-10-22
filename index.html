@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
     <title>Today's Date</title>
     <script>
         //let : quand on ne va pas réutiliser la variable
@@ -35,31 +36,36 @@
             el.setAttribute("style", "color:red;")
         }
 
-        function makeMeBlack() {
-            var el = document.getElementById('makeMeRed')
-            el.setAttribute("style", "color:black;")
+        function changeRow() {
+            var bt = document.getElementById('switchColorButton')
+            var row = document.getElementById('rowGrid').value
+            console.log(row)
+            bt.setAttribute("style", `grid-row: ${row};`)
         }
-        function changeColor() {
-        for (var [key, value] of Object.entries(dict)) {
-        //
-        if (key === 'passeport'){
-            for (var [keyPassport, valuePassport] of Object.entries(value)) {
-                console.log(`${keyPassport}: ${valuePassport}`)
 
-            }
-            //true
-
-        }else
-            //false
-        console.log(`${key}: ${value}`)
-    }
-}
+        function changeColumn() {
+            var bt = document.getElementById('switchColorButton')
+            var column = document.getElementById('columnGrid').value
+            console.log(column)
+            bt.setAttribute("style", `grid-column: ${column};`)
+        }
+        
 
     </script>
+
     <h1> Click on Button to transform date in red</h1>
-    <button onClick="makeMeRed()"> makeMeRed </button>
-    <h1> Click on Button to transform date in black</h1>
-    <button onClick="makeMeBlack()"> makeMeRed </button>
+    <div class="step1">
+    <button id="switchColorButton" onClick="makeMeRed()"> makeMeRed </button>
+    </div>
+
+        <label for="">Row Position</label>
+        <input type="number" name="" id="rowGrid">
+        <button id="changeRow" onClick="changeRow()">Row Position</button>
+    
+        <label for="">Column Position</label>
+        <input type="number" name="" id="columnGrid">
+        <button id="changeColumn" onClick="changeColumn()">Column Position</button>
+
 </body>
 
 </html>

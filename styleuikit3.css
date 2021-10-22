@@ -1,0 +1,25 @@
+/* .contenant {
+    position: relative;
+    text-align: center;
+    color: white;
+    border: 1px solid black;
+  }
+  
+  .texte_centrer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } */
+/* div{
+    width: 400px;
+    height: 400px;
+    position: relative;
+    text-align: center;
+    color: white;
+}
+.texte_centrer {
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    transform: translate(-50%, -50%); */

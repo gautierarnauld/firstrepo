@@ -8,13 +8,13 @@
 // var chaineDeCaracteres = "variable contenant une chaine de caractères"
 
 
-// //Afficher le contenu des varables grace à console.log
+// //Afficher le contenu des variables grace à console.log
 // //Methode n1 avec le ${<var>}
 // console.log(`Contenu de la variable nom = ${nom}`)
 // console.log(`Contenenu de la variable chaineDeCaracteres = ${chaineDeCaracteres}`)
 // // Methode n2 avec le +
 // console.log(`Contenu de la variable nom =` + nom)
-// console.log(`Contenu de la variable chaineDeCaracteres =` + chaineDeCaracteres)
+// console.log(`Contenu de la variable chaineDeCaracteres = + chaineDeCaracteres`)
 
 // //Presentons nous
 // var prenom = "Gautier"

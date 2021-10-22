@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UIKIT 2 - cartes nominatives</title>
+    <link rel="stylesheet" href="style.css">
+        <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.6/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.6/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.6/dist/js/uikit-icons.min.js"></script>
+    <!-- Axios  -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <script>
+        const getUsers = () => {
+            axios.get('https://reqres.in/api/users')
+                .then(response => {
+                    // call HTTP Succes
+                    // Acceder a la donnee retour dans response.data.data
+                    const users = response.data.data;
+                    // 
+                    users.forEach(user => {
+                        // first_name
+                        // last_name
+                        // avatar
+                        // email
+                        // console.log(element.first_name)
+                        // console.log(element.last_name)
+                        // console.log(element.email)
+                        // console.log(element.avatar)
+                        // 
+                        var grid = document.createElement('div')
+                        grid.classList.add('uk-child-width-1-2@m')
+
+                        var maincard = document.createElement('div')
+
+                        var card = document.createElement('div')
+                        card.classList.add('uk-card')
+                        card.classList.add('uk-card-default')
+
+                        var cardmediatop = document.createElement('div')
+                        card.classList.add('uk-car-media-top')
+
+                        var avatar = document.createElement('img')
+                        // console.log(user.avatar)
+                        avatar.src=user.avatar
+
+                        
+                        var cardbody = document.createElement('div')
+                        cardbody.classList.add('uk-card-body')
+
+                        var cardtitle = document.createElement('h3')
+                        cardtitle.classList.add('uk-card-title')
+                        cardtitle.textContent=(`${user.first_name} ${user.last_name}`)
+
+                        var email = document.createElement('p');
+                        email.textContent=user.email
+
+
+                       
+                        cardbody.appendChild(cardtitle)
+                        cardbody.appendChild(email)
+                        cardmediatop.appendChild(avatar)
+                        card.appendChild(cardbody)
+                        card.appendChild(cardmediatop)
+                        maincard.appendChild(card)
+                        grid.appendChild(card)
+                        document.body.appendChild(grid)
+
+
+                
+                        // console.log(`${element.email}`)
+                    })
+                    // var div1 = document.createElement('div') // a partir de l'object document j'utilise la function createElement pour ajouter une div
+                    // div1.id = 'date'
+                    // div1.innerHTML = `Today's date is ${d}`
+                    // document.body.appendChild(div1)
+            })
+            .catch(error => {
+                // if fail
+                console.error(error)
+            });
+            };
+        getUsers();
+    </script>
+    <!-- <div>
+        <div>
+            <ul uk-accordion>
+                <li class="uk-open">
+                    <a class="uk-accordion-title" href="#">Item 1</a>
+                    <div class="uk-accordion-content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </li>
+                <li>
+                    <a class="uk-accordion-title" href="#">Item 2</a>
+                    <div class="uk-accordion-content">
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit.</p>
+                    </div>
+                </li>
+                <li>
+                    <a class="uk-accordion-title" href="#">Item 3</a>
+                    <div class="uk-accordion-content">
+                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat proident.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div>
+    </div> -->
+</body>
+</html>

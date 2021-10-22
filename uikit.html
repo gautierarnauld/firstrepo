@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UIkit</title>
+    <link rel="stylesheet" href="style.css">
+        <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.6/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.6/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.6/dist/js/uikit-icons.min.js"></script>
+</head>
+<body>
+    <div>
+        <ul uk-accordion>
+            <li class="uk-open">
+                <a class="uk-accordion-title" href="#">Item 1</a>
+                <div class="uk-accordion-content">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </li>
+            <li>
+                <a class="uk-accordion-title" href="#">Item 2</a>
+                <div class="uk-accordion-content">
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit.</p>
+                </div>
+            </li>
+            <li>
+                <a class="uk-accordion-title" href="#">Item 3</a>
+                <div class="uk-accordion-content">
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat proident.</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div uk-lightbox>
+        <a href="assets/img/capt.JPG">
+        <button>Afficher l'image</button>
+        </a>
+    </div>
+    <div class="uk-column-1-2">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla eveniet quia consectetur optio eligendi odio similique molestiae officia sapiente ad. Magnam soluta quae, vel, ducimus modi itaque, nobis aut esse molestiae consequatur ipsa error quisquam. In adipisci dolorem deserunt. Corporis voluptate, saepe numquam ex quidem commodi facilis placeat ad ea alias quo quod, ratione adipisci hic voluptas eaque animi consequatur praesentium dolorum fugit reprehenderit? Maxime magni doloremque non, expedita illum molestias nostrum sed illo sequi et labore inventore obcaecati a ab autem ex porro! Similique ut nesciunt vel ducimus velit sed eum, expedita minima amet laboriosam voluptatibus, porro doloribus atque!</p>
+    </div>
+    <br>
+    <br>
+    <div style="width: 40%;" class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow>
+
+        <ul class="uk-slideshow-items">
+            <li>
+                <img src="assets/img/capt.JPG" alt="" uk-cover>
+            </li>
+            <li>
+                <img src="assets/img/capt.JPG" alt="" uk-cover>
+            </li>
+            <li>
+                <img src="assets/img/capt.JPG" alt="" uk-cover>
+            </li>
+        </ul>
+    
+        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+    
+    </div>
+
+</body>
+</html>
