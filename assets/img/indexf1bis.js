@@ -1,13 +1,17 @@
-if (!window.localStorage.getItem('drivers')){
-    var drivers = [
-        {
-            name: 'Fernando Alonso',
-            img: './FA.jpg'
-        }
-    ]
-    window.localStorage.setItem('drivers', JSON.stringify(drivers));
+function axiosGetDrivers(){
+    axios.get('http://localhost:1337/drivers')
+        .then(response => {
+            // call HTTP Succes
+            // Acceder a la donnee retour dans response.data.data
+            window.localStorage.setItem(`drivers`, JSON.stringify(response.data))
+            // console.log(drivers)
+        })
+        .catch(error => {
+        // if fail
+            console.error(error)
+        });
 }
-
+axiosGetDrivers()
 function createDomElement(type, classes, id, attributes){
     var domElement = document.createElement(type)
     if(classes) {
@@ -63,7 +67,34 @@ function addDriverCard(driver, ulDriverList){
         ]
     )
     addChildrensToElement(liDriverCard, [divDriverCard])
+    if (driver.car !== null){
+        addCarCard(driver.car, liDriverCard)
+    }
     addChildrensToElement(ulDriverList, [liDriverCard])
+}
+function addCarCard(car, liDriverCard){
+    var divCarCard = createDomElement(
+        'div',
+        [
+            "uk-card",
+            "uk-card-default",
+            "uk-card-body",
+            "uk-text-center",
+            "uk-sortable-handle",
+        ],
+        '',
+        {}
+    )
+    var imgCarCard = createDriverImg(car.Img)
+    var nameCarCard = createDriverName(car.Model)
+    addChildrensToElement(
+        divCarCard,
+        [
+            imgCarCard,
+            nameCarCard,
+        ]
+    )
+    addChildrensToElement(liDriverCard, [divCarCard])
 }
 function build(){
 
@@ -83,6 +114,20 @@ function build(){
     document.body.appendChild(ulDriverList)
 }
 build()
+function axiosPostDrivers(name, img){
+    axios.post('http://localhost:1337/drivers', {name: name, img: img})
+        .then(response => {
+            console.log(response)
+            // call HTTP Succes
+            // Acceder a la donnee retour dans response.data.data
+            // window.localStorage.setItem(`drivers`, JSON.stringify(response.data))
+            // console.log(drivers)
+        })
+        .catch(error => {
+        // if fail
+            console.error(error)
+        });
+}
 function addDriver() {
     var getName = document.getElementById('inputName').value
     var getImg = document.getElementById('inputImg').value
@@ -93,6 +138,7 @@ function addDriver() {
     }
     let drivers = JSON.parse(window.localStorage.getItem('drivers'))
     drivers.push(obj)
+    axiosPostDrivers(obj.name, obj.img)
     window.localStorage.setItem('drivers', JSON.stringify(drivers))
     console.log(obj)
     var objFromList = drivers.slice(-1)[0]
